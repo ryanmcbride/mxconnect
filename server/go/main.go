@@ -67,6 +67,24 @@ func main() {
 	}
 	mxConfig.DB = initDB()
 
+	// Open our jsonFile
+	jsonFile, err := os.Open("config.json")
+	// if we os.Open returns an error then handle it
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+	jsonMap := make(map[string]interface{})
+	err = json.Unmarshal(byteValue, &jsonMap)
+	if err != nil {
+		panic(err)
+	}
+	mxConfig.ClientID = fmt.Sprintf("%v", jsonMap["clientid"])
+	mxConfig.APIKey = fmt.Sprintf("%v", jsonMap["apikey"])
+	// defer the closing of our jsonFile so that we can parse it later on
+	defer jsonFile.Close()
+
 	router := gin.New()
 	router.Use(gin.Logger())
 
