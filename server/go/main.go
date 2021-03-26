@@ -72,6 +72,7 @@ func main() {
 	// if we os.Open returns an error then handle it
 	if err != nil {
 		fmt.Println(err)
+		return
 	}
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	jsonMap := make(map[string]interface{})

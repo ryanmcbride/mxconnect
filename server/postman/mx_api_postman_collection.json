@@ -1,0 +1,1911 @@
+{
+  "info": {
+    "_postman_id": "3d037f93-1e14-48bb-b9a5-5ed3ed9ec73c",
+    "name": "MX API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "Read an account",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/accounts/{{account_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "accounts", "{{account_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update and account",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true,
+              "content-type": true
+            }
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "{{ContentTypeHeader}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"account\": {\n        \"is_hidden\": true\n    }\n}"
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/accounts/{{account_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "accounts",
+                "{{account_guid}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List accounts by user",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/accounts",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "accounts"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Connect",
+      "item": [
+        {
+          "name": "Request a Connect widget URL",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true,
+              "content-type": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/connect_widget_url",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "connect_widget_url"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Enhance transactions",
+      "item": [
+        {
+          "name": "Enhance transactions",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"transactions\": [{\n        \"amount\": 11.22,\n        \"description\": \"BEER BAR 65000000764SALT LAKE C\",\n        \"id\": \"12\",\n        \"type\": \"DEBIT\"\n     }]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/transactions/enhance",
+              "host": ["{{BaseURL}}"],
+              "path": ["transactions", "enhance"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Holdings",
+      "item": [
+        {
+          "name": "List holdings",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/holdings",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "holdings"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List holdings by member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/holdings",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "holdings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read a holding",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/holdings/{{holding_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "holdings", "{{holding_guid}}"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Institutions",
+      "item": [
+        {
+          "name": "List institutions",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/institutions",
+              "host": ["{{BaseURL}}"],
+              "path": ["institutions"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read an institution",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/institutions/{{institution_code}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["institutions", "{{institution_code}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List favorite institutions",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/institutions/favorites",
+              "host": ["{{BaseURL}}"],
+              "path": ["institutions", "favorites"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List institution-required credentials",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/institutions/{{institution_code}}/credentials",
+              "host": ["{{BaseURL}}"],
+              "path": ["institutions", "{{institution_code}}", "credentials"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "Read a member's connection status",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "{{AcceptHeader}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{AuthorizationToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/status",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List members",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{AuthorizationToken}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "{{AcceptHeader}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "members"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List member challenges",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/challenges",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "challenges"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List member credentials",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/credentials",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "credentials"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read a member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "members", "{{member_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create a member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "{{ContentTypeHeader}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"member\": {\n        \"institution_code\": \"mxbank\",\n        \"credentials\": [\n            {\n                \"guid\": \"CRD-9f61fb4c-912c-bd1e-b175-ccc7f0275cc1\",\n                \"value\": \"test_atrium\"\n            },\n            {\n                \"guid\": \"CRD-e3d7ea81-aac7-05e9-fbdd-4b493c6e474d\",\n                \"value\": \"password\"\n            }\n        ]\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "members"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Aggregate a member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "{{ContentTypeHeader}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/aggregate",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "aggregate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "members", "{{member_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update a member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true,
+              "content-type": true
+            }
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"member\": {\n        \"background_aggregtion_is_disabled\": true\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "members", "{{member_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Resume aggregation for a member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true,
+              "content-type": true
+            }
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"member\": {\n        \"challenges\": [\n            {\n                \"guid\": \"institution-credential-guid\",\n                \"value\": \"user-entered-value\"\n            },\n            {\n                \"guid\": \"institution-credential-guid\",\n                \"value\": \"user-entered-value\"\n            }\n        ]\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/resume",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "resume"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Check member balances",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/check_balance",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "check_balance"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Merchants",
+      "item": [
+        {
+          "name": "List merchants",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/merchants",
+              "host": ["{{BaseURL}}"],
+              "path": ["merchants"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read merchant",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/merchants/{{merchant_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["merchants", "{{merchant_guid}}"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Premium features",
+      "item": [
+        {
+          "name": "Read account owners",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/account_owners",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "account_owners"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Identify a member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "{{ContentTypeHeader}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/identify",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "identify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch extended history",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/fetch_statements",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "fetch_statements"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify a member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/verify",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "verify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List account numbers by member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/account_numbers",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "account_numbers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List account numbers by account",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/accounts/{{account_guid}}/account_numbers",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "accounts",
+                "{{account_guid}}",
+                "account_numbers"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Tags",
+      "item": [
+        {
+          "name": "Create a tag",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"tag\": {\n        \"name\": \"MY OTHER TAG\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/tags",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "tags"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update a tag",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"tag\": {\n        \"name\": \"New Tag Name\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/tags/{{tag_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "tags", "{{tag_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a tag",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/tags/{{tag_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "tags", "{{tag_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read a tag",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/tags/{{tag_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "tags", "{{tag_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List tags",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/tags",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "tags"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Taggings",
+      "item": [
+        {
+          "name": "Create a tagging",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n \"tagging\": {\n     \"transaction_guid\": \"TRN-810828b0-5210-4878-9bd3-f4ce514f90c4\",\n     \"tag_guid\": \"TAG-40faf068-abb4-405c-8f6a-e883ed541fff\"\n }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/taggings",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "taggings"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read a tagging",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/taggings/{{tagging_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "taggings", "{{tagging_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a tagging",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/taggings/{{tagging_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "taggings", "{{tagging_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update a tagging",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n \"tagging\": {\n     \"tag_guid\": \"TAG-8ff0ec57-4628-4c7d-86ed-4e0cd78e2971\"\n }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/taggings/{{tagging_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "taggings", "{{tagging_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List taggings",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/taggings",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "taggings"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Tokens",
+      "item": [
+        {
+          "name": "Generate bearer token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{AuthorizationToken}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "{{ContentTypeHeader}}",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "{{AcceptHeader}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"grant_type\": \"client_credentials\"}",
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/token",
+              "host": ["{{BaseURL}}"],
+              "path": ["token"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "List transactions by user",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "{{AcceptHeader}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{AuthorizationToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/transactions",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "transactions"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read a transaction",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "{{AcceptHeader}}",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{AuthorizationToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/transactions/{{transaction_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "transactions",
+                "{{transaction_guid}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List transactions by member",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/members/{{member_guid}}/transactions",
+              "host": ["{{BaseURL}}"],
+              "path": [
+                "users",
+                "{{user_guid}}",
+                "members",
+                "{{member_guid}}",
+                "transactions"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "List Users",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users",
+              "host": ["{{BaseURL}}"],
+              "path": ["users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read user",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update user",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true,
+              "content-type": true
+            }
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "{{ContentTypeHeader}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"id\": \"ironman1\"\n    }\n}"
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete user",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create a user",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true,
+              "content-type": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"user\": {\n        \"id\": \"partner-2345\",\n        \"is_disabled\": false,\n        \"email\": \"totally.fake.email@notreal.com\",\n        \"metadata\": \"Yada yada yada\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users",
+              "host": ["{{BaseURL}}"],
+              "path": ["users"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Widgets",
+      "item": [
+        {
+          "name": "Get a widget URL",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true,
+              "content-type": true
+            }
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "value": "{{AuthorizationToken}}"
+              },
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "{{AcceptHeader}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "{{ContentTypeHeader}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"widget_url\": {\n        \"widget_type\": \"connect_widget\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseURL}}/users/{{user_guid}}/widget_urls",
+              "host": ["{{BaseURL}}"],
+              "path": ["users", "{{user_guid}}", "widget_urls"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
